@@ -9,3 +9,15 @@ services:
     volumes:
      - /app/node_modules
      - .:/app
+    stdin_open: true
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
+  # nginx:
+  #   ports:
+  #    - "8080:80"  
