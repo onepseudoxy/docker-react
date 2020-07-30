@@ -3,7 +3,7 @@ services:
     - docker
 
 before_install:
-    - docker build  -t eldrissi/docker-react -f Dockerfile.dev . 
+    - travis_wait docker build  -t eldrissi/docker-react -f Dockerfile.dev . 
 
 script:
-    - docker run eldrissi/docker-react npm run test -- --coverage
+    - travis_wait docker run eldrissi/docker-react npm run test -- --coverage
